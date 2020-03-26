@@ -8,11 +8,13 @@ using System.Windows.Input;
 using ABdula.Class;
 using ABdula.Model;
 using System.Collections;
+using System.IO;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
 namespace ABdula.ViewModel
 {
-    class NewsNews:PropertyChange
+    class NewsNews: PropertyChange
     {
 
 
@@ -30,7 +32,11 @@ namespace ABdula.ViewModel
 
         public NewsNews()
         {
-            PdfNewsRead PdfNews = new PdfNewsRead("C:/Users/Vlad/Documents/PdfTest");
+
+            UrlFile Url = JsonConvert.DeserializeObject<UrlFile>(File.ReadAllText("JsonUrl/Url.json"));
+
+
+            PdfNewsRead PdfNews = new PdfNewsRead(Path.GetFullPath(Url.NewsUrl));
             News = PdfNews.ReadInformatin();
 
         }

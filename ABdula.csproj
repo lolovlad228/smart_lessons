@@ -45,6 +45,9 @@
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -76,6 +79,7 @@
     <Compile Include="Class\PropertyChange.cs" />
     <Compile Include="Model\Lessons.cs" />
     <Compile Include="Model\News.cs" />
+    <Compile Include="Model\UrlFile.cs" />
     <Compile Include="RealCom.cs" />
     <Compile Include="ViewModel\LessonsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -125,6 +129,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="JsonUrl\Url.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

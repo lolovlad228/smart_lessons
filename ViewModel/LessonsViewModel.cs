@@ -8,7 +8,9 @@ using ABdula.Class;
 using System.Windows.Controls;
 using System.Windows;
 using System.Collections;
+using System.IO;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
 namespace ABdula.ViewModel
 {
@@ -16,7 +18,7 @@ namespace ABdula.ViewModel
     {
         private ObservableCollection<Lessons> _ListInfo;
         private ComboBoxItem _SelectId;
-        private ExcelRead _Read = new ExcelRead("C:/Users/Vlad/Documents/Test2.xlsx", 1);
+        private ExcelRead _Read;
         private List<ObservableCollection<Lessons>> _ListLessons = new List<ObservableCollection<Lessons>>();
 
         public ObservableCollection<Lessons> ListInfo
@@ -42,6 +44,9 @@ namespace ABdula.ViewModel
 
         public LessonsViewModel()
         {
+
+            UrlFile Url = JsonConvert.DeserializeObject<UrlFile>(File.ReadAllText("JsonUrl/Url.json"));
+            _Read = new ExcelRead(Url.LessonsUrl, 1);
             ListInfo = new ObservableCollection<Lessons>();
             for(int i = 1; i <= 11; i++)
             {
